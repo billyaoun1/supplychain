@@ -63,8 +63,17 @@ sorted_indices = np.argsort(eigenvalues)[::-1]
 sorted_eigenvectors = eigenvectors[:, sorted_indices]
 top_2_eigenvectors = sorted_eigenvectors[:, 0:2]
 
+# These eigenvector entries are the loading weights for each original feature.
+df_loadings = pd.DataFrame(
+    top_2_eigenvectors,
+    index=df.columns,
+    columns=["PC1 Loading", "PC2 Loading"],
+)
+
 manual_pca_scores = np.dot(df_standardized, top_2_eigenvectors)
 print(manual_pca_scores)
+print("\nPCA loading weights:")
+print(df_loadings)
 
 pc1 = manual_pca_scores[:, 0]
 pc2 = manual_pca_scores[:, 1]
