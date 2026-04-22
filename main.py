@@ -44,10 +44,8 @@ print(df_standardized)
 """
 pca = PCA(n_components=2) 
 
-# 2. Fit the model and transform your standardized data
 principal_components = pca.fit_transform(df_standardized)
 
-# 3. Put it into a nice dataframe
 df_pca = pd.DataFrame(data=principal_components, 
                       columns=['Principal Component 1', 'Principal Component 2'], 
                       index=df.index)
