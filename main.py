@@ -63,7 +63,6 @@ sorted_indices = np.argsort(eigenvalues)[::-1]
 sorted_eigenvectors = eigenvectors[:, sorted_indices]
 top_2_eigenvectors = sorted_eigenvectors[:, 0:2]
 
-# These eigenvector entries are the loading weights for each original feature.
 df_loadings = pd.DataFrame(
     top_2_eigenvectors,
     index=df.columns,
